@@ -1,0 +1,92 @@
+========================================================================================
+ HOSTEL ROOM ALLOCATION & ACCOMMODATION ANALYSIS SYSTEM - JAVA SE SUITE
+ Course Code: 25ITT32 - Java Programming | Comprehensive Evaluation
+========================================================================================
+
+[STAGE 1] REGISTERED STUDENTS ROSTER (Sorted by ID via Stream API):
+ID     Student Name       Dept     Year      Phone        Email                    
+----------------------------------------------------------------------------------------
+101    Aarav Kumar        CSE      Year-2  9876543210   aarav.kumar@univ.edu     
+102    Diya Sharma        IT       Year-3  9876543211   diya.sharma@univ.edu     
+103    Rohan Verma        ECE      Year-1  9876543212   rohan.verma@univ.edu     
+104    Ananya Iyer        CSE      Year-4  9876543213   ananya.iyer@univ.edu     
+105    Kavya Nair         AIDS     Year-2  9876543214   kavya.nair@univ.edu      
+106    Siddharth Patel    MECH     Year-3  9876543215   siddharth.patel@univ.edu 
+107    Pooja Reddy        IT       Year-2  9876543216   pooja.reddy@univ.edu     
+108    Vikram Singh       CSE      Year-1  9876543217   vikram.singh@univ.edu    
+109    Meera Joshi        ECE      Year-4  9876543218   meera.joshi@univ.edu     
+110    Aditya Menon       MECH     Year-2  9876543219   aditya.menon@univ.edu    
+111    Sneha Pillai       AIDS     Year-3  9876543220   sneha.pillai@univ.edu    
+112    Harish Balan       IT       Year-1  9876543221   harish.balan@univ.edu    
+113    Varun Rao          CSE      Year-3  9876543222   varun.rao@univ.edu       
+114    Tanvi Deshmukh     ECE      Year-2  9876543223   tanvi.deshmukh@univ.edu  
+115    Pranav Sundaram    MECH     Year-4  9876543224   pranav.sundaram@univ.edu 
+
+[STAGE 2] HOSTEL ROOM INVENTORY & BED AVAILABILITY:
+ID     Room No    Room Type       Occupancy & Bed Availability
+----------------------------------------------------------------------------------------
+201    A-101      Single AC       Cap:1  Occ:1  Available:0  (100.0%)
+202    A-102      Single AC       Cap:1  Occ:1  Available:0  (100.0%)
+203    A-103      Single AC       Cap:1  Occ:0  Available:1  (  0.0%)
+204    B-201      Double Non-AC   Cap:2  Occ:2  Available:0  (100.0%)
+205    B-202      Double Non-AC   Cap:2  Occ:2  Available:0  (100.0%)
+206    B-203      Double Non-AC   Cap:2  Occ:1  Available:1  ( 50.0%)
+207    B-204      Double Non-AC   Cap:2  Occ:0  Available:2  (  0.0%)
+208    C-301      Triple Non-AC   Cap:3  Occ:3  Available:0  (100.0%)
+209    C-302      Triple Non-AC   Cap:3  Occ:2  Available:1  ( 66.7%)
+210    C-303      Triple Non-AC   Cap:3  Occ:0  Available:3  (  0.0%)
+
+[STAGE 3] EXECUTING NEW ROOM ALLOCATION (Positive Scenario):
+   * Attempting to allocate Student 113 (Varun Rao) to Room 203 (A-103)...
+   [SUCCESS] Allocation Confirmed! 1013     Student:113    Room:203    Date:2026-11-20   Status:ALLOCATED 
+   [UPDATED] Room Status: 203    A-103      Single AC       Cap:1  Occ:1  Available:0  (100.0%)
+
+[STAGE 4] CRITICAL INTEGRITY TEST: PREVENT ALLOCATION BEYOND CAPACITY:
+   * Attempting to allocate Student 114 to Room 201 (A-101 - Already Full)...
+   [SECURITY INTERCEPT] RoomCapacityExceededException Caught!
+   -> Message: Allocation Rejected: Room 'A-101' (ID: 201) has reached maximum bed capacity of 1.
+   [VERIFIED] Over-allocation was strictly PREVENTED. Room bed limits enforced.
+
+[STAGE 5] INTEGRITY TEST: PREVENT DUPLICATE ALLOCATION FOR SAME STUDENT:
+   * Attempting duplicate allocation for Student 101 (Already allocated to A-101)...
+   [SECURITY INTERCEPT] StudentAlreadyAllocatedException Caught!
+   -> Message: Allocation Rejected: Student with ID 101 already holds an active room allocation.
+   [VERIFIED] Business Rule: One active room allocation per student enforced.
+
+[STAGE 6] CHECK-IN AND CHECK-OUT MOVEMENT RECORDS:
+RecID    AllocID    Check-In     Check-Out    Status    
+----------------------------------------------------------------------------------------
+501      Alloc:1001     In:2026-11-20   Out:-            Status:CHECKED_IN
+502      Alloc:1002     In:2026-11-20   Out:-            Status:CHECKED_IN
+503      Alloc:1003     In:2026-11-20   Out:-            Status:CHECKED_IN
+504      Alloc:1004     In:2026-11-20   Out:-            Status:CHECKED_IN
+505      Alloc:1005     In:2026-11-20   Out:-            Status:CHECKED_IN
+506      Alloc:1006     In:2026-11-20   Out:-            Status:CHECKED_IN
+507      Alloc:1007     In:2026-11-20   Out:-            Status:CHECKED_IN
+508      Alloc:1008     In:2026-11-20   Out:-            Status:CHECKED_IN
+509      Alloc:1009     In:2026-11-20   Out:-            Status:CHECKED_IN
+510      Alloc:1010     In:2026-11-20   Out:-            Status:CHECKED_IN
+511      Alloc:1011     In:2026-11-20   Out:-            Status:CHECKED_IN
+512      Alloc:1012     In:2026-11-20   Out:-            Status:CHECKED_IN
+513      Alloc:1013     In:2026-11-20   Out:-            Status:CHECKED_IN
+
+[STAGE 7] HOSTEL FEE PAYMENT PROCESSING & ARREARS AUDIT:
+   * Processing partial installment of ₹15,000 for Student 110 (MECH)...
+   [PAYMENT COMMITTED] Updated Ledger: 910      Student:110    Total:₹35000.00   Paid:₹15000.00   Pending:₹20000.00   Status:PARTIAL  (2026-11-20)
+
+[STAGE 8] ADVANCED STREAM API ANALYTICS & GROUPING (Unit 5 Syllabus):
+   * Hosteller Count Grouped by Department:
+     - Department CSE    : 4 students
+     - Department ECE    : 3 students
+     - Department MECH   : 3 students
+     - Department AIDS   : 2 students
+     - Department IT     : 3 students
+
+[STAGE 9] MULTITHREADED CONCURRENT WORKERS EXECUTION (Unit 3 Syllabus):
+   -> Multithreaded background tasks synchronized and completed successfully.
+
+[STAGE 10] GENERATING FINAL OPERATIONAL REPORTS:
+========================================================================================
+[SUCCESS] JAVA SUITE EXECUTION COMPLETED WITH 100% TEST PASS RATE.
+[INFO] Execution log saved to: java_execution_output.txt
+========================================================================================

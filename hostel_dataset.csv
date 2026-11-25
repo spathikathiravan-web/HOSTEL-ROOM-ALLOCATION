@@ -1,0 +1,16 @@
+student_id,student_name,department,year_of_study,phone,email,room_id,room_number,room_type,capacity,occupancy,allocation_date,allocation_status,checkin_date,checkout_date,total_fee,paid_amount,pending_amount,payment_status
+101,Aarav Kumar,CSE,2,9876543210,aarav.kumar@univ.edu,201,A-101,Single AC,1,1,2026-07-01,ALLOCATED,2026-07-01,,65000,65000,0,PAID
+102,Diya Sharma,IT,3,9876543211,diya.sharma@univ.edu,202,A-102,Single AC,1,1,2026-07-01,ALLOCATED,2026-07-01,,65000,45000,20000,PARTIAL
+103,Rohan Verma,ECE,1,9876543212,rohan.verma@univ.edu,204,B-201,Double Non-AC,2,2,2026-07-02,ALLOCATED,2026-07-02,,45000,45000,0,PAID
+104,Ananya Iyer,CSE,4,9876543213,ananya.iyer@univ.edu,204,B-201,Double Non-AC,2,2,2026-07-02,ALLOCATED,2026-07-02,,45000,25000,20000,PARTIAL
+105,Kavya Nair,AIDS,2,9876543214,kavya.nair@univ.edu,205,B-202,Double Non-AC,2,2,2026-07-03,ALLOCATED,2026-07-03,,45000,45000,0,PAID
+106,Siddharth Patel,MECH,3,9876543215,siddharth.patel@univ.edu,205,B-202,Double Non-AC,2,2,2026-07-03,ALLOCATED,2026-07-03,,45000,15000,30000,PARTIAL
+107,Pooja Reddy,IT,2,9876543216,pooja.reddy@univ.edu,206,B-203,Double Non-AC,2,1,2026-07-04,ALLOCATED,2026-07-04,,45000,45000,0,PAID
+108,Vikram Singh,CSE,1,9876543217,vikram.singh@univ.edu,208,C-301,Triple Non-AC,3,3,2026-07-05,ALLOCATED,2026-07-05,,35000,35000,0,PAID
+109,Meera Joshi,ECE,4,9876543218,meera.joshi@univ.edu,208,C-301,Triple Non-AC,3,3,2026-07-05,ALLOCATED,2026-07-05,,35000,20000,15000,PARTIAL
+110,Aditya Menon,MECH,2,9876543219,aditya.menon@univ.edu,208,C-301,Triple Non-AC,3,3,2026-07-05,ALLOCATED,2026-07-05,,35000,0,35000,PENDING
+111,Sneha Pillai,AIDS,3,9876543220,sneha.pillai@univ.edu,209,C-302,Triple Non-AC,3,2,2026-07-06,ALLOCATED,2026-07-06,,35000,35000,0,PAID
+112,Harish Balan,IT,1,9876543221,harish.balan@univ.edu,209,C-302,Triple Non-AC,3,2,2026-07-06,ALLOCATED,2026-07-06,,35000,15000,20000,PARTIAL
+113,Varun Rao,CSE,3,9876543222,varun.rao@univ.edu,203,A-103,Single AC,1,1,2026-01-10,RELEASED,2026-01-10,2026-06-30,65000,65000,0,PAID
+114,Tanvi Deshmukh,ECE,2,9876543223,tanvi.deshmukh@univ.edu,207,B-204,Double Non-AC,2,0,2026-01-15,RELEASED,2026-01-15,2026-06-30,45000,45000,0,PAID
+115,Pranav Sundaram,MECH,4,9876543224,pranav.sundaram@univ.edu,210,C-303,Triple Non-AC,3,0,2026-07-12,CANCELLED,2026-07-12,,35000,0,35000,PENDING

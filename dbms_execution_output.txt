@@ -1,0 +1,148 @@
+================================================================================
+ HOSTEL ROOM ALLOCATION & ACCOMMODATION ANALYSIS SYSTEM - DBMS ENGINE
+ Course: 25ITT31 - Database Management Systems | Autonomous Examination
+================================================================================
+[INFO] Initializing SQLite Relational Database at: D:\HostelManagementSystem\2_database_management_system\hostel_database.db
+   -> Records Seeded: 15 Students, 10 Rooms, 14 Allocations, 15 Payments.
+
+--------------------------------------------------------------------------------
+ Query 1: Selection & Projection - 2nd Year Students Roster
+--------------------------------------------------------------------------------
++------------+----------------+------------+---------------+------------+
+| student_id | student_name   | department | year_of_study | phone      |
++------------+----------------+------------+---------------+------------+
+| 105        | Kavya Nair     | AIDS       | 2             | 9876543214 |
+| 101        | Aarav Kumar    | CSE        | 2             | 9876543210 |
+| 114        | Tanvi Deshmukh | ECE        | 2             | 9876543223 |
+| 107        | Pooja Reddy    | IT         | 2             | 9876543216 |
+| 110        | Aditya Menon   | MECH       | 2             | 9876543219 |
++------------+----------------+------------+---------------+------------+
+(5 rows)
+
+
+--------------------------------------------------------------------------------
+ Query 2: Room Capacity & Bed Availability Calculation (capacity - occupancy)
+--------------------------------------------------------------------------------
++---------+-------------+---------------+----------+-----------+----------------+
+| room_id | room_number | room_type     | capacity | occupancy | available_beds |
++---------+-------------+---------------+----------+-----------+----------------+
+| 203     | A-103       | Single AC     | 1        | 0         | 1              |
+| 206     | B-203       | Double Non-AC | 2        | 1         | 1              |
+| 207     | B-204       | Double Non-AC | 2        | 0         | 2              |
+| 209     | C-302       | Triple Non-AC | 3        | 2         | 1              |
+| 210     | C-303       | Triple Non-AC | 3        | 0         | 3              |
++---------+-------------+---------------+----------+-----------+----------------+
+(5 rows)
+
+
+--------------------------------------------------------------------------------
+ Query 3: Aggregate Metrics - Total Rooms, Bed Capacity, Occupancy & Vacancy Rate
+--------------------------------------------------------------------------------
++-------------+----------------+----------------+-------------+---------------+
+| total_rooms | total_capacity | total_occupied | vacant_beds | occupancy_pct |
++-------------+----------------+----------------+-------------+---------------+
+| 10          | 20             | 12             | 8           | 60.0          |
++-------------+----------------+----------------+-------------+---------------+
+(1 rows)
+
+
+--------------------------------------------------------------------------------
+ Query 4: Multi-Table Natural Join - Active Hostellers, Allocated Room & Dates
+--------------------------------------------------------------------------------
++------------+-----------------+------------+-------------+---------------+-----------------+-------------------+
+| student_id | student_name    | department | room_number | room_type     | allocation_date | allocation_status |
++------------+-----------------+------------+-------------+---------------+-----------------+-------------------+
+| 101        | Aarav Kumar     | CSE        | A-101       | Single AC     | 2026-07-01      | ALLOCATED         |
+| 102        | Diya Sharma     | IT         | A-102       | Single AC     | 2026-07-01      | ALLOCATED         |
+| 103        | Rohan Verma     | ECE        | B-201       | Double Non-AC | 2026-07-02      | ALLOCATED         |
+| 104        | Ananya Iyer     | CSE        | B-201       | Double Non-AC | 2026-07-02      | ALLOCATED         |
+| 105        | Kavya Nair      | AIDS       | B-202       | Double Non-AC | 2026-07-03      | ALLOCATED         |
+| 106        | Siddharth Patel | MECH       | B-202       | Double Non-AC | 2026-07-03      | ALLOCATED         |
+| 107        | Pooja Reddy     | IT         | B-203       | Double Non-AC | 2026-07-04      | ALLOCATED         |
+| 108        | Vikram Singh    | CSE        | C-301       | Triple Non-AC | 2026-07-05      | ALLOCATED         |
+| 109        | Meera Joshi     | ECE        | C-301       | Triple Non-AC | 2026-07-05      | ALLOCATED         |
+| 110        | Aditya Menon    | MECH       | C-301       | Triple Non-AC | 2026-07-05      | ALLOCATED         |
+| 111        | Sneha Pillai    | AIDS       | C-302       | Triple Non-AC | 2026-07-06      | ALLOCATED         |
+| 112        | Harish Balan    | IT         | C-302       | Triple Non-AC | 2026-07-06      | ALLOCATED         |
++------------+-----------------+------------+-------------+---------------+-----------------+-------------------+
+(12 rows)
+
+
+--------------------------------------------------------------------------------
+ Query 5: Group By & Having - Departments with >= 2 Hostellers
+--------------------------------------------------------------------------------
++------------+---------------+
+| department | student_count |
++------------+---------------+
+| CSE        | 4             |
+| ECE        | 3             |
+| IT         | 3             |
+| MECH       | 3             |
+| AIDS       | 2             |
++------------+---------------+
+(5 rows)
+
+
+--------------------------------------------------------------------------------
+ Query 6: Nested Subquery with IN - Students in 'Single AC' Luxury Rooms
+--------------------------------------------------------------------------------
++------------+--------------+------------+------------+
+| student_id | student_name | department | phone      |
++------------+--------------+------------+------------+
+| 101        | Aarav Kumar  | CSE        | 9876543210 |
+| 102        | Diya Sharma  | IT         | 9876543211 |
++------------+--------------+------------+------------+
+(2 rows)
+
+
+--------------------------------------------------------------------------------
+ Query 7: View Execution - Room Occupancy Summary View (vw_room_occupancy_summary)
+--------------------------------------------------------------------------------
++-------------+---------------+----------+-----------+----------------+----------------------+--------------------+
+| room_number | room_type     | capacity | occupancy | available_beds | occupancy_percentage | status_description |
++-------------+---------------+----------+-----------+----------------+----------------------+--------------------+
+| A-101       | Single AC     | 1        | 1         | 0              | 100.0                | Fully Occupied     |
+| A-102       | Single AC     | 1        | 1         | 0              | 100.0                | Fully Occupied     |
+| A-103       | Single AC     | 1        | 0         | 1              | 0.0                  | Vacant             |
+| B-201       | Double Non-AC | 2        | 2         | 0              | 100.0                | Fully Occupied     |
+| B-202       | Double Non-AC | 2        | 2         | 0              | 100.0                | Fully Occupied     |
+| B-203       | Double Non-AC | 2        | 1         | 1              | 50.0                 | Partially Occupied |
+| B-204       | Double Non-AC | 2        | 0         | 2              | 0.0                  | Vacant             |
+| C-301       | Triple Non-AC | 3        | 3         | 0              | 100.0                | Fully Occupied     |
+| C-302       | Triple Non-AC | 3        | 2         | 1              | 66.7                 | Partially Occupied |
+| C-303       | Triple Non-AC | 3        | 0         | 3              | 0.0                  | Vacant             |
++-------------+---------------+----------+-----------+----------------+----------------------+--------------------+
+(10 rows)
+
+
+--------------------------------------------------------------------------------
+ Query 8: Financial Audit View - Fee Defaulters with Arrears (vw_fee_defaulters_report)
+--------------------------------------------------------------------------------
++------------+-----------------+------------+------------+-----------+-------------+----------------+----------------+
+| student_id | student_name    | department | phone      | total_fee | paid_amount | pending_amount | payment_status |
++------------+-----------------+------------+------------+-----------+-------------+----------------+----------------+
+| 110        | Aditya Menon    | MECH       | 9876543219 | 35000     | 0           | 35000          | PENDING        |
+| 115        | Pranav Sundaram | MECH       | 9876543224 | 35000     | 0           | 35000          | PENDING        |
+| 106        | Siddharth Patel | MECH       | 9876543215 | 45000     | 15000       | 30000          | PARTIAL        |
+| 102        | Diya Sharma     | IT         | 9876543211 | 65000     | 45000       | 20000          | PARTIAL        |
+| 104        | Ananya Iyer     | CSE        | 9876543213 | 45000     | 25000       | 20000          | PARTIAL        |
+| 112        | Harish Balan    | IT         | 9876543221 | 35000     | 15000       | 20000          | PARTIAL        |
+| 109        | Meera Joshi     | ECE        | 9876543218 | 35000     | 20000       | 15000          | PARTIAL        |
++------------+-----------------+------------+------------+-----------+-------------+----------------+----------------+
+(7 rows)
+
+
+--------------------------------------------------------------------------------
+ Query 9: ACID Transaction Verification - Commit Room Allocation with Capacity Validation
+--------------------------------------------------------------------------------
++----------------------+------------------------------------------------------------------------------+
+| status               | details                                                                      |
++----------------------+------------------------------------------------------------------------------+
+| TRANSACTION VERIFIED | Atomic commit successful: Allocation 1015 committed, room occupancy updated. |
++----------------------+------------------------------------------------------------------------------+
+(1 rows)
+
+================================================================================
+[SUCCESS] ALL DBMS QUERIES, VIEWS, AND TRANSACTIONS EXECUTED SUCCESSFULLY.
+[INFO] Full execution log written to: D:\HostelManagementSystem\2_database_management_system\dbms_execution_output.txt
+================================================================================

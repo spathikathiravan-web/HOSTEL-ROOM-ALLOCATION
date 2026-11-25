@@ -1,0 +1,37 @@
+
+================================================================================
+ UNIT 1 & 3: DESCRIPTIVE STATISTICS & NUMPY VECTORIZED ANALYSIS
+================================================================================
+Feature          Mean       Median     Std Dev    Variance     Min      Max      IQR     
+------------------------------------------------------------------------------------
+year_of_study    2.47       2.00       1.06       1.12         1.0      4.0      1.00    
+capacity         1.80       2.00       1.15       1.31         0.0      3.0      2.00    
+occupancy        1.60       2.00       1.06       1.11         0.0      3.0      1.00    
+total_fee        45000.00   45000.00   11338.93   128571428.57 35000.0  65000.0  10000.00
+paid_amount      33333.33   35000.00   20412.41   416666666.67 0.0      65000.0  27500.00
+pending_amount   11666.67   0.00       13972.76   195238095.24 0.0      35000.0  20000.00
+
+[Outlier Detection via Z-Scores (|z| > 2.0)]:
+   * Variable 'total_fee': 0 statistical outliers identified (z > 2.0).
+   * Variable 'pending_amount': 0 statistical outliers identified (z > 2.0).
+
+Pivot Summary: Mean Capacity & Occupancy by Room Type (NumPy Aggregations):
+   * Single AC       -> Mean Capacity: 1.00 beds | Mean Occupancy: 1.00 beds
+   * Double Non-AC   -> Mean Capacity: 2.00 beds | Mean Occupancy: 1.80 beds
+   * Triple Non-AC   -> Mean Capacity: 3.00 beds | Mean Occupancy: 2.60 beds
+
+================================================================================
+ UNIT 5: EXPLORATORY DATA ANALYSIS (EDA) & VISUALIZATION PIPELINE
+================================================================================
+[SAVED] Chart 1: D:\HostelManagementSystem\4_foundation_of_data_science\visualizations\1_room_occupancy_by_type.png
+[SAVED] Chart 2: D:\HostelManagementSystem\4_foundation_of_data_science\visualizations\2_hostel_occupancy_donut.png
+[SAVED] Chart 3: D:\HostelManagementSystem\4_foundation_of_data_science\visualizations\3_department_wise_distribution.png
+[SAVED] Chart 4: D:\HostelManagementSystem\4_foundation_of_data_science\visualizations\4_fee_collection_status.png
+[SAVED] Chart 5: D:\HostelManagementSystem\4_foundation_of_data_science\visualizations\5_fee_distribution_by_year.png
+[SAVED] Chart 6: D:\HostelManagementSystem\4_foundation_of_data_science\visualizations\6_monthly_checkin_checkout_trend.png
+[SAVED] Chart 7: D:\HostelManagementSystem\4_foundation_of_data_science\visualizations\7_correlation_heatmap.png
+
+================================================================================
+[SUCCESS] ALL 7 DATA SCIENCE VISUALIZATIONS SUCCESSFULLY GENERATED & SAVED.
+[INFO] Full execution log saved to: D:\HostelManagementSystem\4_foundation_of_data_science\data_science_execution_output.txt
+================================================================================
